@@ -1,0 +1,28 @@
+[package]
+name = "oversprite_ui"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+description = "OverSprite editor UI built with egui"
+repository = { workspace = true }
+keywords = { workspace = true }
+categories = { workspace = true }
+
+[[bin]]
+name = "oversprite-editor"
+path = "src/bin/oversprite-editor.rs"
+
+[dependencies]
+oversprite_core = { path = "../core" }
+oversprite_parser = { path = "../parser" }
+oversprite_renderer = { path = "../renderer" }
+eframe = { workspace = true }
+egui = { workspace = true }
+egui_extras = { workspace = true }
+rfd = { workspace = true }
+thiserror = { workspace = true }
+parking_lot = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+pretty_assertions = { workspace = true }

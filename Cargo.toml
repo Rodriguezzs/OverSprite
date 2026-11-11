@@ -1,0 +1,88 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/parser",
+    "crates/renderer",
+    "crates/ui",
+    "crates/scripting",
+    "crates/cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "OverSprite - Modern pixel art editor with .ovs format"
+repository = "https://github.com/Rodriguezzs/OverSprite"
+keywords = ["pixel-art", "aseprite", "editor", "graphics", "animation"]
+categories = ["graphics", "multimedia", "command-line-utilities"]
+
+[workspace.dependencies]
+# Core dependencies
+uuid = { version = "1.8", features = ["v4", "serde", "fast-rng"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rmp-serde = "1.1"
+thiserror = "1.0"
+anyhow = "1.0"
+parking_lot = "0.12"
+once_cell = "1.19"
+bitflags = { version = "2.4", features = ["serde"] }
+
+# Parser dependencies
+zip = { version = "0.6", features = ["deflate", "bzip2", "zstd", "time"] }
+lz4_flex = "0.10"
+byteorder = "1.5"
+flate2 = "1.0"
+
+# Renderer dependencies
+tiny-skia = "0.8"
+tiny-skia-path = "0.8"
+glam = "0.26"
+
+# UI dependencies
+eframe = { version = "0.29", features = ["wgpu", "persistence", "default_fonts", "web_screen_reader"] }
+egui = { version = "0.29", features = [] }
+egui_extras = "0.29"
+rfd = { version = "0.12", default-features = false, features = ["xdg-portal"] }
+
+# Scripting dependencies
+mlua = { version = "0.9", features = ["lua54", "vendored", "send"] }
+
+# CLI dependencies
+clap = { version = "4.5", features = ["derive", "env", "wrap_help"] }
+rayon = "1.10"
+glob = "0.3"
+serde_yaml = "0.9"
+
+# Testing
+tempfile = { version = "3.8" }
+pretty_assertions = { version = "1.4" }
+image = "0.24"
+
+[workspace.lints.clippy]
+all = "warn"
+correctness = "warn"
+suspicious = "warn"
+complexity = "warn"
+performance = "warn"
+style = "warn"
+pedantic = "allow"
+nursery = "allow"
+cargo = "allow"
+
+[workspace.lints.rust]
+unused_variables = "warn"
+unused_imports = "warn"
+dead_code = "warn"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+strip = true
+
+[profile.dev]
+debug = 2

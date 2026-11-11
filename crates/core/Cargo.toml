@@ -1,0 +1,28 @@
+[package]
+name = "oversprite_core"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+description = "OverSprite core data structures and types"
+repository = { workspace = true }
+keywords = { workspace = true }
+categories = { workspace = true }
+
+[dependencies]
+uuid = { workspace = true }
+chrono = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+rmp-serde = { workspace = true }
+thiserror = { workspace = true }
+parking_lot = { workspace = true }
+once_cell = { workspace = true }
+bitflags = { workspace = true }
+glam = { workspace = true }
+zip = { workspace = true }
+lz4_flex = { workspace = true }
+image = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+pretty_assertions = { workspace = true }
